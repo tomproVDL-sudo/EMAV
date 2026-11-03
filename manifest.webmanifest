@@ -1,0 +1,16 @@
+{
+  "name": "EMAV terrain",
+  "short_name": "EMAV",
+  "description": "Visites EMAV qualité de l'air — fonctionne sans réseau",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f1f3f5",
+  "theme_color": "#f1f3f5",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
