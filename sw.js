@@ -1,6 +1,6 @@
-/* EMAV : application utilisable sans réseau. Version 33b2330ee9 (changée automatiquement à chaque nouvelle version de index.html).
+/* EMAV : application utilisable sans réseau. Version 708b4f766c (changée automatiquement à chaque nouvelle version de index.html).
    La page est gardée en cache et mise à jour en arrière-plan ; les bibliothèques PDF sont gardées au premier lancement avec réseau. */
-const C='emav-33b2330ee9',FILES=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'],
+const C='emav-708b4f766c',FILES=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'],
   LIBS=['https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js','https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(async c=>{await c.addAll(FILES);await Promise.all(LIBS.map(u=>fetch(u,{mode:'no-cors'}).then(r=>c.put(u,r)).catch(()=>{})))}));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));

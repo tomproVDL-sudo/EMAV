@@ -26,21 +26,24 @@ Android : ouvrir l'adresse dans Chrome > menu ⋮ > « Installer l'application �
 Puis dans EMAV : Réglages > nom et fonction ; accueil ou Réglages > « Importer
 donnees_emav.json ».
 
-Le fichier des données : donnees_emav.json (dossier QAI_CO2, à côté de ce dossier)
------------------------------------------------------------------------------------
-Il contient les établissements (noms, adresses) et les plans. Il ne se publie JAMAIS :
-on le transmet aux agents en interne (messagerie de la Ville, câble USB, OneDrive pro)
-et chacun l'importe une fois sur son téléphone. À réimporter quand les plans changent
-(nouvelle version du dossier QAI_CO2).
+Le fichier des données : donnees_emav.json
+------------------------------------------
+À créer sur l'ordinateur : EMAV > accueil > « Préparer un téléphone ». Il contient,
+à jour de la base partagée, les établissements, les plans et les visites déjà faites
+(dernière visite de chaque établissement, ou tout l'historique ; sans les photos).
+Sur le téléphone, « Importer donnees_emav.json » charge tout en une fois : une
+nouvelle visite y est préremplie et comparée à la précédente, même sans réseau.
+À refaire avant une campagne pour avoir les dernières visites. Le fichier se transmet
+en interne (messagerie de la Ville, câble USB, OneDrive pro) et ne se publie JAMAIS.
+(Le donnees_emav.json du dossier QAI_CO2 ne contient que les établissements et les plans.)
 
 Sur le terrain
 --------------
 Tout fonctionne en mode avion : visites, pièces, photos, fiches, export .zip.
-Une nouvelle visite d'un établissement déjà évalué reprend les types de fenêtres,
-matériaux, ventilation et bouches de la visite précédente présente sur le téléphone
-(pour une visite faite sur un autre appareil : importer d'abord son export .zip) ;
-l'état est à constater de nouveau, et chaque pièce est comparée à la visite précédente
-(amélioration, dégradation, sans changement).
+Une nouvelle visite d'un établissement déjà évalué reprend les éléments de la visite
+précédente (fenêtres, matériaux, ventilation, bouches, état constaté) à vérifier sur
+place ; chaque pièce est comparée à la visite précédente (amélioration, dégradation,
+sans changement).
 Export PDF : les bibliothèques PDF sont gardées sur le téléphone au premier lancement
 avec réseau.
 
