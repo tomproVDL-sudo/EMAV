@@ -145,6 +145,10 @@ const todayIso=()=>{const d=new Date();return d.getFullYear()+'-'+pad2(d.getMont
 const frDate=iso=>{const m=String(iso||'').match(/^(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'/'+m[2]+'/'+m[1]:''};
 const num=v=>{const n=parseFloat(String(v??'').replace(',','.'));return Number.isFinite(n)?n:0};
 const pct=(a,b)=>b?Math.round(a/b*100):null;
+let EMRV=0;function emRev(){const t=Date.now();if(t-EMRV<1500)return;EMRV=t;try{localStorage.setItem('emav_rev',String(t))}catch(e){}}
+function emTomb(s,k){if(s!=='visits'&&s!=='rooms')return;const o={t:s==='visits'?'v':'r',id:String(k),at:Date.now()};
+  try{const L=JSON.parse(localStorage.getItem('emav_suppr')||'[]');L.push(o);localStorage.setItem('emav_suppr',JSON.stringify(L.slice(-3000)))}catch(e){}
+  if(typeof NET!=='undefined'&&NET.on&&!NET.ro&&!String(k).startsWith('__'))netApi('PUT','emav_suppr/'+k,o).catch(()=>{})}
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
 function toast(m,ms=2600){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),ms)}
 
@@ -205,7 +209,7 @@ const DB={db:null,
     r.onupgradeneeded=()=>{const d=r.result;for(const s of['visits','rooms','photos'])if(!d.objectStoreNames.contains(s))d.createObjectStore(s,{keyPath:'id'})};
     r.onsuccess=()=>{DB.db=r.result;res()};r.onerror=()=>rej(r.error)})},
   tx(s,m,fn){return new Promise((res,rej)=>{const t=DB.db.transaction(s,m),st=t.objectStore(s);const q=fn(st);t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error);t.onabort=()=>rej(t.error)})},
-  get(s,k){return DB.tx(s,'readonly',st=>st.get(k))},put(s,o){return DB.tx(s,'readwrite',st=>st.put(o))},del(s,k){return DB.tx(s,'readwrite',st=>st.delete(k)).then(x=>{netDel(s,k);return x})},all(s){return DB.tx(s,'readonly',st=>st.getAll())}};
+  get(s,k){return DB.tx(s,'readonly',st=>st.get(k))},put(s,o){return DB.tx(s,'readwrite',st=>st.put(o)).then(x=>{if(s==='visits'||s==='rooms')emRev();return x})},del(s,k){return DB.tx(s,'readwrite',st=>st.delete(k)).then(x=>{netDel(s,k);emTomb(s,k);return x})},all(s){return DB.tx(s,'readonly',st=>st.getAll())}};
 const MEM={visits:[],rooms:[]};
 /* mode application (ordinateur et téléphone) */
 const INST={evt:null};
@@ -255,7 +259,7 @@ async function netSync(){if(!NET.on||NET.busy)return false;NET.busy=true;let cha
     if(!NET.ro){await pool(pv,6,netPushVisit);await pool(pr,6,netPushRoom)}NET.nv=RV.size;NET.nr=RR.size;NET.pend=NET.ro?0:pv.length+pr.length;
     NET.last=Date.now();NET.err='';netSeenSave()}
   catch(e){NET.err=e.message}finally{NET.busy=false}
-  if(changed){await loadAll();if(!/^#\/r\//.test(location.hash))route()}return changed>0}
+  if(changed){emRev();await loadAll();if(!/^#\/r\//.test(location.hash))route()}return changed>0}
 const NETOK=new Map();
 async function netPhotoURL(id){if(!NET.on)return'';if(NETOK.has(id))return NETOK.get(id);let u='';try{const q=await fetch('api/emav-blob/'+id,{cache:'force-cache'});if(q.ok)u='api/emav-blob/'+id}catch(e){}NETOK.set(id,u);return u}
 async function netMode(){if(!VIA_GW)return false;try{const j=await (await fetch('api/info',{cache:'no-store'})).json();const ro=!!j.consultation;if(ro!==!!NET.ro){NET.ro=ro;return true}}catch(e){}return false}
@@ -273,7 +277,7 @@ function loginDialog(){const m=document.createElement('div');m.className='ovlog'
 document.addEventListener('click',e=>{const b=e.target.closest('#hlogin,#slogin');if(b){e.preventDefault();loginDialog();return}const c=e.target.closest('#sconsult');if(c){e.preventDefault();accSetE('consultation').catch(x=>toast(x.message))}});
 function startNetTimer(){if(startNetTimer.on)return;startNetTimer.on=1;setInterval(()=>{if(!document.hidden)netSync()},60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)netSync()})}
 /* Réglages : base EMAV du réseau (la base partagée de l'outil QAI CO2) */
-const EMAV_VERSION='2026.11.06-4';
+const EMAV_VERSION='2026.11.07-4';
 function verCard(){const tel=!VIA_GW&&!IN_CLAUDE;return`<div class="card"><h2>Version</h2><p style="margin:0">EMAV <b>${EMAV_VERSION}</b>${tel?' · version téléphone':''}${VIA_GW?` · passerelle <b>${esc(NET.pver||'ancienne')}</b>${NET.pver&&NET.pver!==EMAV_VERSION?' <span style="color:var(--bad)">(différente : réinstallez le package)</span>':''}`:''}</p>
   <p class="hint" style="margin:4px 0 0">Le même numéro s'affiche dans l'outil QAI CO₂ (Paramètres) et sur le téléphone (Réglages).${tel?' Après une mise à jour du site, fermez puis rouvrez l\'application avec réseau : la nouvelle version se charge toute seule.':''}${PLANS.index.length?` Données : ${PLANS.index.length} plans, ${BDD.length} établissements, ${MEM.visits.length} visites sur cet appareil.`:''}</p></div>`}
 function netCard(){
@@ -1270,6 +1274,15 @@ async function exportMail(v){
 }
 
 document.head.insertAdjacentHTML('beforeend','<style>.prevh{background:color-mix(in srgb,#e0a83a 13%,var(--surface));border:1px solid color-mix(in srgb,#e0a83a 45%,var(--line));border-radius:10px;padding:8px 12px;font-size:13.5px;line-height:1.45;margin:0 0 10px;color:var(--ink)}.prevh .btn{margin:6px 6px 0 0}.evt{width:100%;border-collapse:collapse;font-size:13px}.evt th{text-align:left;font-weight:600;color:var(--muted);font-size:12px;padding:4px 6px;border-bottom:1px solid var(--line)}.evt td{padding:6px;border-bottom:1px solid var(--line);vertical-align:top}.ovlog{position:fixed;inset:0;background:rgba(10,16,20,.55);display:grid;place-items:center;z-index:9999;padding:16px}.ovlogb{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:18px 20px;width:min(420px,100%);box-shadow:0 10px 40px rgba(0,0,0,.35)}.ovlogb h2{margin:0 0 6px;font-size:18px}.netinfo{font-size:13px;line-height:1.6;color:var(--ink)}.netinfo code{font-size:12px;word-break:break-all}</style>');
+window.EMAV_API={version:EMAV_VERSION,
+  async fichePDF(o){for(let i=0;i<600&&!window.__emavBoot;i++)await new Promise(r=>setTimeout(r,100));try{await window.__emavBoot}catch(e){}
+    let v=o&&o.vid&&MEM.visits.find(x=>x.id===o.vid);
+    /* sinon : visite du même jour qui contient le plus de pièces de ces numéros ASTECH (ou le même établissement) */
+    if(!v&&o){const d=String(o.date||'').slice(0,10),n=plain(o.etab||'').trim(),AS=new Set((o.as||[]).map(aNorm));let best=null,bs=0;
+      for(const x of MEM.visits){if(d&&String(x.date||'').slice(0,10)!==d)continue;const rs=roomsOf(x.id);if(!rs.length)continue;let sc=rs.filter(r=>AS.has(aNorm(r.astech))).length*2;if(n&&plain(x.etab||'').trim()===n)sc+=3;else if(o.sc&&(x.sc===o.sc||(x.scs||[]).includes(o.sc)))sc+=1;if(sc>bs){bs=sc;best=x}}
+      if(bs>=2)v=best}
+    if(!v)return null;const rs=roomsOf(v.id);if(!rs.length)return null;
+    const blob=await pagesToPDF(etabReport(v,rs),'blue');return{name:`EMAV_${slug(v.etab)}_${String(v.date||'').replace(/-/g,'')}_etablissement.pdf`,blob,date:v.date,etab:v.etab}}};
 /* ================= démarrage ================= */
 (async()=>{
   try{await DB.open();await netInit();await loadAll();
@@ -1277,8 +1290,8 @@ document.head.insertAdjacentHTML('beforeend','<style>.prevh{background:color-mix
     if(!PLANS.index.length&&/^(localhost|127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(location.hostname)){try{const r=await fetch('plans_qai.json',{cache:'no-store'});if(r.ok){const pk=await r.json();if(Array.isArray(pk.docs)&&pk.docs.length){PLANS={index:pk.index||[],docs:{}};for(const d of pk.docs)PLANS.docs[d.s]=d;if(Array.isArray(pk.bdd)&&pk.bdd.length)BDD=pk.bdd;await DB.put('photos',{id:'__plans__',json:pk})}}}catch(e){}}
     await netRef();}
   catch(e){$('#app').innerHTML='<header class="top"><h1>EMAV terrain</h1></header><main><div class="card"><b>Stockage indisponible.</b><p class="hint">Ce navigateur bloque l\'enregistrement des données (navigation privée ?). Ouvrez la page dans une fenêtre normale.</p></div></main>';return}
-  route();
-  if(NET.on){netSync().then(c=>{if(!c&&(!location.hash||location.hash==='#/'))renderHome()});startNetTimer()}
+  route();window.__emavBoot=NET.on?netSync().catch(()=>false):Promise.resolve(false);
+  if(NET.on){window.__emavBoot.then(c=>{if(!c&&(!location.hash||location.hash==='#/'))renderHome()});startNetTimer()}
   /* accès au dossier des photos : redemandé automatiquement au premier clic de la session (le navigateur exige un geste) ;
      en choisissant « Autoriser à chaque visite », plus aucune demande ensuite */
   try{await phDirLoad();if(PHDIR.h&&MEM.rooms.some(r=>(r.photos||[]).some(p=>p.ref))){let p='prompt';try{p=await PHDIR.h.queryPermission({mode:'read'})}catch(e){}
