@@ -277,7 +277,7 @@ function loginDialog(){const m=document.createElement('div');m.className='ovlog'
 document.addEventListener('click',e=>{const b=e.target.closest('#hlogin,#slogin');if(b){e.preventDefault();loginDialog();return}const c=e.target.closest('#sconsult');if(c){e.preventDefault();accSetE('consultation').catch(x=>toast(x.message))}});
 function startNetTimer(){if(startNetTimer.on)return;startNetTimer.on=1;setInterval(()=>{if(!document.hidden)netSync()},60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)netSync()})}
 /* Réglages : base EMAV du réseau (la base partagée de l'outil QAI CO2) */
-const EMAV_VERSION='2026.11.07-6';
+const EMAV_VERSION='2026.11.07-10';
 function verCard(){const tel=!VIA_GW&&!IN_CLAUDE;return`<div class="card"><h2>Version</h2><p style="margin:0">EMAV <b>${EMAV_VERSION}</b>${tel?' · version téléphone':''}${VIA_GW?` · passerelle <b>${esc(NET.pver||'ancienne')}</b>${NET.pver&&NET.pver!==EMAV_VERSION?' <span style="color:var(--bad)">(différente : réinstallez le package)</span>':''}`:''}</p>
   <p class="hint" style="margin:4px 0 0">Le même numéro s'affiche dans l'outil QAI CO₂ (Paramètres) et sur le téléphone (Réglages).${tel?' Après une mise à jour du site, fermez puis rouvrez l\'application avec réseau : la nouvelle version se charge toute seule.':''}${PLANS.index.length?` Données : ${PLANS.index.length} plans, ${BDD.length} établissements, ${MEM.visits.length} visites sur cet appareil.`:''}</p></div>`}
 function netCard(){
