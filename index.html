@@ -122,6 +122,42 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,.btn:focus-visib
 .vnb{display:inline-block;min-width:22px;text-align:center;font-weight:700;color:#fff;background:var(--warn,#a86a00);border-radius:999px;padding:1px 7px}
 .vbar{display:flex;width:90px;height:10px;border-radius:3px;overflow:hidden;background:var(--line)}.vbar i{display:block;height:100%}
 .vdet{display:flex;flex-direction:column;gap:8px;padding:4px 2px 8px}.vdet ul{margin:4px 0 0;padding-left:18px}.vdet li{margin:2px 0}.vdet a.vchk{color:var(--warn,#a86a00)}.vdet a.vlink{font-weight:600;color:var(--ink)}
+.dkwrap{max-width:1760px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-left)) 96px max(16px,env(safe-area-inset-right))}
+.dktop{flex-wrap:wrap}.dktop h1{font-size:20px;margin:0}.dkacts{gap:6px;flex-wrap:wrap}
+.dkgrid{display:grid;grid-template-columns:260px minmax(360px,.9fr) minmax(460px,1.25fr);gap:12px;align-items:start}
+.dkcol{position:sticky;top:8px;max-height:calc(100vh - 96px);overflow:auto}.dkmid{display:flex;flex-direction:column}.dkmid>.card{margin-bottom:12px}
+.dklist{padding:12px}.dklist h2,.dkph h2,#dkph h2{font-size:15px}
+.dklv{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 4px 4px}
+.dkit{display:grid;grid-template-columns:52px minmax(0,1fr) 10px 22px;gap:8px;align-items:center;width:100%;text-align:left;background:none;border:0;border-radius:6px;padding:7px 6px;font:inherit;font-size:13.5px;color:var(--ink);cursor:pointer}
+.dkit:hover{background:var(--accent-soft)}.dkit.on{background:var(--accent-soft);box-shadow:inset 0 0 0 2px var(--accent);font-weight:600}
+.dkit i{width:10px;height:10px;border-radius:3px}.dkn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dka{font-family:var(--mono);font-size:12px;color:var(--accent)}.dka.miss{color:var(--warn)}
+.dkb{background:var(--warn);color:#fff;border-radius:999px;font-size:11px;text-align:center;padding:1px 0}
+.dkvis{margin-top:12px;border-top:1px solid var(--line);padding-top:10px;font-size:13px}.dkvis ul{margin:4px 0 8px;padding-left:18px;color:var(--warn)}
+.labseg{width:auto}.labseg button{padding:5px 10px;min-height:32px;font-size:13px}
+.dkpick{background:#fff3dd;color:#5c3700;border-radius:6px;padding:8px 10px;margin-bottom:8px;font-size:13px}
+.dkplanmsg{margin-top:8px;font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dkphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:8px}.dkphs figure{margin:0}
+.dkphs figure>button{display:block;width:100%;aspect-ratio:4/3;max-width:100%;padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--desk);cursor:zoom-in}
+.dkphs img{width:100%;height:100%;object-fit:cover;display:block}.dkphs figcaption{font-size:11.5px;color:var(--muted);margin-top:3px}
+.dkphs .dkmiss{border:2px dashed var(--warn);color:var(--warn);font:600 12px var(--sans);background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px}
+.dkzoom{position:fixed;inset:0;background:rgba(10,15,18,.88);z-index:60;display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}.dkzoom img{max-width:100%;max-height:100%;border-radius:4px}.dkzoom button{position:fixed;top:14px;right:14px}
+.dkroom{padding:14px 18px}.dkhead{position:sticky;top:0;background:var(--surface);z-index:3;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.dkcode{font-family:var(--mono);font-size:13px;background:var(--accent-soft);color:var(--accent);border-radius:5px;padding:2px 8px}
+.dkwarn{color:var(--warn);font-weight:600;font-size:13px}.dkwarn code{font-family:var(--mono)}
+.dkpb{background:#fff3dd;color:#5c3700;border-radius:6px;padding:8px 10px;margin-top:8px;font-size:13px}.dkpb>div{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}.dkpb a{color:#8a5200;font-weight:600}
+.dkok{color:var(--good);font-size:13px;margin-top:8px}
+.dknav{display:flex;flex-wrap:wrap;gap:2px;margin-top:8px}.dknav a{padding:5px 9px;border-radius:5px;font-size:13px;text-decoration:none;color:var(--accent)}.dknav a:hover{background:var(--accent-soft)}
+.dks{padding-top:6px;margin-top:10px;border-top:1px solid var(--line);scroll-margin-top:150px}.dks:first-of-type{border-top:0}
+.dksh{font-size:12px!important;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:6px 0 8px!important}
+.dkroom .card{border:0;padding:0 0 4px;margin:0 0 10px;background:transparent}
+.dkroom .chip{min-height:30px;padding:4px 10px;font-size:13px}.dkroom .seg button{min-height:34px}
+.dkroom .wgrid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}.dkroom .photos{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+.dkroom .cols{grid-template-columns:1fr 1fr}
+@media (max-width:1240px){.dkgrid{grid-template-columns:240px minmax(0,1fr)}.dkroom{grid-column:1/-1}}
+@media (max-width:760px){.dkgrid{grid-template-columns:minmax(0,1fr)}.dkcol{position:static;max-height:none}.dkroom .cols{grid-template-columns:1fr}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dkpb,:root:not([data-theme="light"]) .dkpick{background:#3a2a10;color:#f3d9a8}:root:not([data-theme="light"]) .dkpb a{color:#f3c27a}}
+:root[data-theme="dark"] .dkpb,:root[data-theme="dark"] .dkpick{background:#3a2a10;color:#f3d9a8}:root[data-theme="dark"] .dkpb a{color:#f3c27a}
 </style>
 <div id="app"><div class="wrap"><div class="apptop"><h1><span class="brand">EMAV</span> terrain</h1></div><div class="card">Chargement…</div></div></div>
 <div id="ovl" class="ovl" hidden></div>
@@ -285,7 +321,7 @@ function loginDialog(){const m=document.createElement('div');m.className='ovlog'
 document.addEventListener('click',e=>{const b=e.target.closest('#hlogin,#slogin');if(b){e.preventDefault();loginDialog();return}const c=e.target.closest('#sconsult');if(c){e.preventDefault();accSetE('consultation').catch(x=>toast(x.message))}});
 function startNetTimer(){if(startNetTimer.on)return;startNetTimer.on=1;setInterval(()=>{if(!document.hidden)netSync()},60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)netSync()})}
 /* Réglages : base EMAV du réseau (la base partagée de l'outil QAI CO2) */
-const EMAV_VERSION='2026.11.10-4';
+const EMAV_VERSION='2026.11.17-1';
 function verCard(){const tel=!VIA_GW&&!IN_CLAUDE;return`<div class="card"><h2>Version</h2><p style="margin:0">EMAV <b>${EMAV_VERSION}</b>${tel?' · version téléphone':''}${VIA_GW?` · passerelle <b>${esc(NET.pver||'ancienne')}</b>${NET.pver&&NET.pver!==EMAV_VERSION?' <span style="color:var(--bad)">(différente : réinstallez le package)</span>':''}`:''}</p>
   <p class="hint" style="margin:4px 0 0">Le même numéro s'affiche dans l'outil QAI CO₂ (Paramètres) et sur le téléphone (Réglages).${tel?' Après une mise à jour du site, fermez puis rouvrez l\'application avec réseau : la nouvelle version se charge toute seule.':''}${PLANS.index.length?` Données : ${PLANS.index.length} plans, ${BDD.length} établissements, ${MEM.visits.length} visites sur cet appareil.`:''}</p></div>`}
 function netCard(){
@@ -371,7 +407,7 @@ function roomProblems(r){const c=roomCalc(r),p=[];
   return p}
 
 /* ================= état et navigation ================= */
-const ST={view:'home',visitId:null,roomId:null,step:0,tab:'plan',lv:null,mode:'syn',pv:null};
+const ST={view:'home',visitId:null,roomId:null,step:0,tab:'plan',lv:null,mode:'syn',pv:null,lab:LS.get('emav_lab','nom')};
 let downloads=null;
 const IN_CLAUDE=!!(window.claude&&window.claude.use);
 if(IN_CLAUDE)window.claude.use('downloads').then(d=>{downloads=d}).catch(()=>{downloads=null});
@@ -388,6 +424,7 @@ function route(){
   else if(h[0]==='new'){renderNewVisit()}
   else if(h[0]==='set'){renderSettings()}
   else if(h[0]==='verif'){ST.view='verif';ST.fromVerif=1;renderVerif()}
+  else if(h[0]==='d'&&MEM.visits.find(v=>v.id===h[1])){const nv=ST.visitId!==h[1]||ST.view!=='desk';ST.view='desk';ST.fromVerif=1;ST.visitId=h[1];if(nv){DK.rid=h[2]||null;ST.lv=null;ST.pv=null}renderDesk();return}
   else{ST.view='home';ST.fromVerif=0;renderHome()}
   window.scrollTo(0,0);
 }
@@ -434,11 +471,11 @@ function renderVerif(){const all=MEM.visits.slice().sort((a,b)=>String(b.date||'
   const okN=F.filter(x=>x.st==='verif'&&!x.ck.n).length;
   const bar=rs=>{const d=rs.filter(r=>r.status==='done'),c={good:0,mid:0,bad:0};for(const r of d)c[roomCalc(r).cls]++;const n=d.length||1;return d.length?`<span class="vbar" title="${c.good} satisfaisante(s) · ${c.mid} à améliorer · ${c.bad} insuffisante(s)">${['good','mid','bad'].map(k=>c[k]?`<i style="width:${c[k]/n*100}%;background:${CLS[k].hex}"></i>`:'').join('')}</span>`:'<span class="hint">–</span>'};
   const obj=v=>{const P=v.sc?getPlan(v.sc):null;if(!P)return'<span class="hint">sans plan</span>';const rs=roomsOf(v.id),tg=regTarget(P.rooms.filter(eligible).length),dn=rs.filter(r=>r.sc===v.sc&&r.ri!=null&&eligible(P.rooms[r.ri])).length;return`<span style="color:${dn>=tg?'var(--good)':'var(--warn,#a86a00)'}">${dn} / ${tg}</span>`};
-  const act=x=>{if(ro)return'';const v=x.v;if(x.st==='verif')return`<button class="btn sm pri" data-vval="${v.id}">Valider</button>`;if(x.st==='val')return`<button class="btn sm" data-vtr="${v.id}">Marquer transférée</button> <button class="btn sm ghost" data-vunval="${v.id}" title="Annuler la validation">↺</button>`;if(x.st==='tr')return`<button class="btn sm" data-vsent="${v.id}">Marquer envoyée</button> <button class="btn sm ghost" data-vunval="${v.id}" title="Revenir à « à vérifier »">↺</button>`;if(x.st==='env')return`<button class="btn sm ghost" data-vunval="${v.id}" title="Revenir à « à vérifier »">↺</button>`;return''};
+  const act=x=>{const v=x.v,dk=x.st==='hist'?'':`<button class="btn sm" data-go="#/d/${v.id}" title="Poste de vérification : plan, liste des pièces et fiche complète sur un seul écran">Vérifier</button> `;if(ro)return dk;if(x.st==='verif')return`${dk}<button class="btn sm pri" data-vval="${v.id}">Valider</button>`;if(x.st==='val')return`<button class="btn sm" data-vtr="${v.id}">Marquer transférée</button> <button class="btn sm ghost" data-vunval="${v.id}" title="Annuler la validation">↺</button>`;if(x.st==='tr')return`<button class="btn sm" data-vsent="${v.id}">Marquer envoyée</button> <button class="btn sm ghost" data-vunval="${v.id}" title="Revenir à « à vérifier »">↺</button>`;if(x.st==='env')return`<button class="btn sm ghost" data-vunval="${v.id}" title="Revenir à « à vérifier »">↺</button>`;return''};
   const det=x=>{const{V,R}=x.ck,v=x.v;return`<div class="vdet">${V.length?`<div><b>Visite</b> <button class="btn sm ghost" data-go="#/v/${v.id}/infos">Corriger</button><ul>${V.map(m=>`<li>${esc(m)}</li>`).join('')}</ul></div>`:''}
       ${R.length?`<div><b>Pièces (${R.length})</b><ul>${R.map(({r,p})=>`<li><a href="#/r/${r.id}/${chkStep(p[0])}" class="vlink">${esc(r.salle||'Pièce sans nom')}</a>${r.astech?` <span class="hint">${esc(r.astech)}</span>`:''} : ${p.map(m=>`<a href="#/r/${r.id}/${chkStep(m)}" class="vchk">${esc(m)}</a>`).join(', ')}</li>`).join('')}</ul></div>`:''}
       ${!V.length&&!R.length?'<p class="hint" style="margin:0">Aucune anomalie : la visite peut être validée.</p>':''}
-      <div class="row" style="gap:6px;flex-wrap:wrap"><button class="btn sm" data-go="#/v/${v.id}/synthese">Ouvrir la visite</button><button class="btn sm" data-vfe="${v.id}">Fiche établissement</button><button class="btn sm" data-vfp="${v.id}">Fiches des pièces</button>${v.valid?`<span class="hint" style="align-self:center">Validée le ${new Date(v.valid.at).toLocaleDateString('fr-FR')}${v.valid.by?' par '+esc(v.valid.by):''}${v.tr?' · transférée le '+frDate(v.tr):''}${v.sent?' · envoyée le '+frDate(v.sent):''}</span>`:''}</div></div>`};
+      <div class="row" style="gap:6px;flex-wrap:wrap"><button class="btn sm pri" data-go="#/d/${v.id}">Vérifier et corriger les pièces</button><button class="btn sm" data-go="#/v/${v.id}/synthese">Ouvrir la visite</button><button class="btn sm" data-vfe="${v.id}">Fiche établissement</button><button class="btn sm" data-vfp="${v.id}">Fiches des pièces</button>${v.valid?`<span class="hint" style="align-self:center">Validée le ${new Date(v.valid.at).toLocaleDateString('fr-FR')}${v.valid.by?' par '+esc(v.valid.by):''}${v.tr?' · transférée le '+frDate(v.tr):''}${v.sent?' · envoyée le '+frDate(v.sent):''}</span>`:''}</div></div>`};
   const rows=F.map(x=>{const v=x.v,rs=x.ck.rs,d=rs.filter(r=>r.status==='done').length,o=VF.open===v.id;
     return`<tr class="vrow${o?' open':''}" data-vopen="${v.id}"><td>${frDate(v.date)}</td><td><b>${esc(v.etab)}</b>${v.type?`<div class="hint">${esc(v.type)}</div>`:''}</td><td>${esc(v.evaluateur||'')}</td><td class="n">${d} / ${rs.length}</td><td class="n">${obj(v)}</td><td>${bar(rs)}</td>
       <td class="n">${x.st==='hist'?'<span class="hint">–</span>':x.ck.n?`<span class="vnb" title="${esc([...x.ck.V,...x.ck.R.map(y=>(y.r.salle||'?')+' : '+y.p.join(', '))].slice(0,12).join('\n'))}">${x.ck.n}</span>`:'<span style="color:var(--good)">✓</span>'}</td>
@@ -463,6 +500,107 @@ function renderVerif(){const all=MEM.visits.slice().sort((a,b)=>String(b.date||'
       renderVerif();return}
     if(e.target.closest('a'))return;const r=e.target.closest('[data-vopen]');if(r){VF.open=VF.open===r.dataset.vopen?null:r.dataset.vopen;renderVerif()}})}
 async function vSet(v,st){if(NET.ro)return;if(st==='val'){v.valid={at:Date.now(),by:user().nom||''}}else if(st==='tr'){if(!v.valid)v.valid={at:Date.now(),by:user().nom||''};v.tr=isoDay()}else if(st==='env'){if(!v.valid)v.valid={at:Date.now(),by:user().nom||''};if(!v.tr)v.tr=isoDay();v.sent=isoDay()}else{delete v.valid;delete v.tr;delete v.sent}await saveVisit(v);try{emRev()}catch(e){}}
+
+/* ================= poste de vérification (ordinateur) : liste des pièces, plan et fiche complète sur un seul écran ================= */
+const DK={rid:null,only:0,pick:0,newRi:null,focus:0};
+function deskOrder(v){const ck=visitChecks(v),pb=new Map(ck.R.map(x=>[x.r.id,x.p]));const nOrd=n=>{const i=NIVEAUX.indexOf(n);return i<0?99:i};
+  const L=ck.rs.slice().sort((a,b)=>nOrd(a.niveau)-nOrd(b.niveau)||String(a.astech||'~').localeCompare(String(b.astech||'~'),'fr',{numeric:true})||String(a.salle||'').localeCompare(String(b.salle||''),'fr'));
+  return{ck,pb,L,F:DK.only?L.filter(r=>pb.has(r.id)):L}}
+function deskPlanOpt(){const v=curVisit(),{pb}=deskOrder(v),r=MEM.rooms.find(x=>x.id===DK.rid),warn=new Map();
+  for(const x of roomsOf(v.id))if(x.sc===v.sc&&x.ri!=null&&pb.has(x.id))warn.set(x.ri,pb.get(x.id).length);
+  return{sel:r&&r.sc===v.sc&&r.ri!=null?r.ri:DK.newRi,warn}}
+function renderDesk(){const v=curVisit();if(!v){go('#/verif');return}const{L}=deskOrder(v);
+  if(!DK.rid||!L.some(r=>r.id===DK.rid))DK.rid=L[0]?L[0].id:null;
+  ST.lab=LS.get('emav_lab','nom');
+  $('#app').innerHTML=`<div class="dkwrap"><div class="apptop dktop" id="dktop"></div>
+    <div class="dkgrid"><aside class="card dkcol dklist" id="dklist" aria-label="Pièces de la visite"></aside>
+      <div class="dkcol dkmid"><div class="card" id="dkplan"></div><div class="card" id="dkph"></div></div>
+      <section class="card dkroom" id="dkroom" aria-label="Fiche de la pièce"></section></div>
+    <nav class="bar"><div class="barin" id="dkbar"></div></nav></div>`;
+  DK.focus=1;drawDeskTop();drawDeskList();drawDeskPlanCard();deskRoomRedraw(true)}
+function drawDeskTop(){const v=curVisit(),{ck}=deskOrder(v),st=vStat(v),done=ck.rs.filter(r=>r.status==='done').length,P=v.sc?getPlan(v.sc):null,ro=NET.ro;
+  let obj='';if(P){const tg=regTarget(P.rooms.filter(eligible).length),dn=ck.rs.filter(r=>r.sc===v.sc&&r.ri!=null&&eligible(P.rooms[r.ri])).length;obj=` · objectif réglementaire ${dn} / ${tg}`}
+  $('#dktop').innerHTML=`<button class="btn sm back" data-go="#/verif" aria-label="Retour à la vérification des visites">←</button><div class="grow" style="min-width:0"><h1>${esc(v.etab)}</h1><div class="sub">Visite du ${frDate(v.date)}${v.evaluateur?' · '+esc(v.evaluateur):''} · ${done} / ${ck.rs.length} pièce${ck.rs.length>1?'s':''} terminée${done>1?'s':''}${obj}</div></div>
+    <span class="vst" style="--c:${VSTAT[st].c}">${VSTAT[st].l}${ck.n?' · '+ck.n+' point'+(ck.n>1?'s':''):''}</span>
+    <div class="row dkacts"><button class="btn sm" id="dkfe">Fiche établissement</button><button class="btn sm" id="dkfp">Fiches des pièces</button><button class="btn sm" data-go="#/v/${v.id}/plan">Ouvrir la visite</button>${ro||st==='hist'?'':st==='verif'||st==='cours'?`<button class="btn sm pri" id="dkval">Valider la visite</button>`:`<button class="btn sm" id="dkunval" title="Annuler la validation">Annuler la validation</button>`}</div>`;
+  $('#dkfe').onclick=()=>showReport('etab',v);$('#dkfp').onclick=()=>showReport('rooms',v);
+  const b=$('#dkval');if(b)b.onclick=async()=>{const n=deskOrder(v).ck.n;if(n&&!b.dataset.c){b.dataset.c=1;b.textContent=`${n} point${n>1?'s':''} restant${n>1?'s':''} : valider quand même ?`;return}await vSet(v,'val');toast(v.etab+' : visite validée.');drawDeskTop()};
+  const u=$('#dkunval');if(u)u.onclick=async()=>{if(!u.dataset.c){u.dataset.c=1;u.textContent='Confirmer l\'annulation';return}await vSet(v,'');toast('Validation annulée.');drawDeskTop()}}
+function drawDeskList(){const v=curVisit(),{ck,pb,L,F}=deskOrder(v),box=$('#dklist');if(!box)return;const nb=L.filter(r=>pb.has(r.id)).length;let cur='',h='';
+  for(const r of F){if(r.niveau!==cur){cur=r.niveau;h+=`<div class="dklv">${esc(cur||'Niveau non renseigné')} · ${F.filter(x=>x.niveau===r.niveau).length}</div>`}
+    const c=roomCalc(r),p=pb.get(r.id),a=astShort(r.astech);
+    h+=`<button type="button" class="dkit${r.id===DK.rid?' on':''}" data-dkr="${r.id}" aria-current="${r.id===DK.rid}"><span class="dka${a?'':' miss'}">${a?esc(a):'—'}</span><span class="dkn">${esc(r.salle||'Pièce sans nom')}</span><i style="background:${r.status==='done'?CLS[c.cls].hex:'#cfe0ef'}" title="${r.status==='done'?esc(CLS[c.cls].lab):'en cours'}"></i>${p?`<b class="dkb" title="${esc(p.join(', '))}">${p.length}</b>`:'<span></span>'}</button>`}
+  box.innerHTML=`<div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:6px"><h2 style="margin:0">Pièces</h2><span class="hint" style="font-size:12px">↑ ↓ pour changer de pièce</span></div>
+    <div class="chips" style="margin-bottom:6px"><button type="button" class="chip" data-dkonly="0" aria-pressed="${!DK.only}">Toutes ${L.length}</button><button type="button" class="chip" data-dkonly="1" aria-pressed="${!!DK.only}">À corriger ${nb}</button></div>
+    ${h||`<p class="hint">${DK.only?'Aucune pièce à corriger.':'Aucune pièce évaluée.'}</p>`}
+    ${ck.V.length?`<div class="dkvis"><b>Visite</b><ul>${ck.V.map(m=>`<li>${esc(m)}</li>`).join('')}</ul><button type="button" class="btn sm" data-go="#/v/${v.id}/infos">Corriger la visite</button></div>`:'<p class="hint" style="font-size:12px;margin:10px 0 0">Informations de la visite : aucun point à corriger.</p>'}`;
+  box.onclick=e=>{const b=e.target.closest('[data-dkr]');if(b){deskSelect(b.dataset.dkr);return}const o=e.target.closest('[data-dkonly]');if(o){DK.only=+o.dataset.dkonly;drawDeskList()}}}
+function drawDeskPlanCard(){const v=curVisit(),P=v.sc?getPlan(v.sc):null,box=$('#dkplan');if(!box)return;
+  if(!P){box.innerHTML='<p class="hint" style="margin:0">Pas de plan pour cet établissement.</p>';return}
+  const rs=roomsOf(v.id),lvs=[...new Set(P.rooms.map(r=>r.l))].sort((a,b)=>lvOrder(a)-lvOrder(b)),r=MEM.rooms.find(x=>x.id===DK.rid);
+  if(r&&r.sc===v.sc&&r.ri!=null&&P.rooms[r.ri]&&!ST.lv)ST.lv=P.rooms[r.ri].l;if(!lvs.includes(ST.lv))ST.lv=lvs[0];
+  box.innerHTML=`<div class="row" style="gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px">${(v.scs||[]).length>1?`<select id="dksc" style="width:auto">${v.scs.map(x=>`<option ${x===v.sc?'selected':''}>${x}</option>`).join('')}</select>`:''}<div class="chips">${lvs.map(l=>{const n=P.rooms.filter(q=>q.l===l&&rs.some(x=>x.ri===q.i&&x.sc===v.sc)).length;return`<button type="button" class="chip" data-dklv="${l}" aria-pressed="${l===ST.lv}">${LVL_LAB(l)}${n?' · '+n:''}</button>`}).join('')}</div><span class="grow"></span><span class="hint">Étiquettes</span>${labSeg()}</div>
+    <div class="dkpick" id="dkpick" ${DK.pick?'':'hidden'}>Cliquez sur la pièce du plan qui correspond à « ${esc(r?r.salle||'cette pièce':'')} » : son numéro ASTECH et son niveau seront repris. <button type="button" class="btn sm" id="dkpickx">Annuler</button></div>
+    <div class="planbox" id="planbox"><div class="planctl"><button id="zin" aria-label="Zoomer">+</button><button id="zout" aria-label="Dézoomer">−</button><button id="zfit" aria-label="Recadrer" style="font-size:15px">⤢</button></div><div id="plansvg"></div></div>
+    <div id="dkplanmsg" class="dkplanmsg" hidden></div>
+    <div class="leg">${Object.values(CLS).map(c=>`<span><i style="background:${c.hex}"></i>${c.lab}</span>`).join('')}<span><i style="background:#cfe0ef"></i>en cours</span><span><i style="background:#b26a00;border-radius:50%"></i>points à corriger</span><span><i style="background:#fff;border:3px solid #e8833a"></i>pièce ouverte</span></div>`;
+  ST.mode='syn';drawVisitPlan();bindPlan();
+  box.querySelectorAll('[data-dklv]').forEach(b=>b.onclick=()=>{ST.lv=b.dataset.dklv;ST.pv=null;DK.newRi=null;drawDeskPlanCard()});
+  box.querySelectorAll('[data-lab]').forEach(b=>b.onclick=()=>{ST.lab=b.dataset.lab;LS.set('emav_lab',ST.lab);box.querySelectorAll('[data-lab]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lab===ST.lab)));drawVisitPlan()});
+  const sc=$('#dksc');if(sc)sc.onchange=async()=>{v.sc=sc.value;ST.lv=null;ST.pv=null;await saveVisit(v);drawDeskPlanCard()};
+  const px=$('#dkpickx');if(px)px.onclick=()=>{DK.pick=0;drawDeskPlanCard()}}
+function deskPlanPick(ri){const v=curVisit(),P=getPlan(v.sc),pr=P&&P.rooms[ri];if(!pr)return;const ex=roomsOf(v.id).find(x=>x.sc===v.sc&&x.ri===ri),r=MEM.rooms.find(x=>x.id===DK.rid);
+  if(DK.pick&&r){if(NET.ro)return;if(ex&&ex.id!==r.id){toast(`Cette pièce du plan est déjà évaluée (« ${ex.salle||'sans nom'} »).`,3500);return}
+    r.sc=v.sc;r.ri=ri;if(pr.a)r.astech=pr.a;r.niveau=lvToNiveau(pr.l);DK.pick=0;saveRoom(r,true);toast(`Pièce rattachée au plan : ${pr.a||String(pr.s||'').trim()}.`);deskRefresh();return}
+  if(ex){deskSelect(ex.id);return}
+  DK.newRi=ri;drawVisitPlan();const m=$('#dkplanmsg');if(!m)return;m.hidden=false;
+  m.innerHTML=`<b>${esc(String(pr.s||'Pièce').replace(/\s+/g,' ').trim())}</b>${pr.a?` <code>${esc(pr.a)}</code>`:''} : pièce non évaluée.${NET.ro?'':' <button type="button" class="btn sm pri" id="dknew">Évaluer cette pièce</button>'} <button type="button" class="btn sm ghost" id="dknewx">Fermer</button>`;
+  $('#dknewx').onclick=()=>{DK.newRi=null;m.hidden=true;drawVisitPlan()};
+  const b=$('#dknew');if(b)b.onclick=async()=>{const nr=roomShell(v,v.sc,ri);if(!v.noPrefill){const pm=prevRoomOf(nr);if(pm){prefillFrom(nr,pm);toast(`Pièce préremplie avec la visite du ${frDate(nr.prev.date)} : vérifiez chaque rubrique.`,4000)}}await saveRoom(nr,true);DK.newRi=null;DK.only=0;deskSelect(nr.id)}}
+function deskSelect(id){const v=curVisit();DK.rid=id;DK.pick=0;DK.newRi=null;try{history.replaceState(null,'','#/d/'+v.id+'/'+id)}catch(e){}
+  const r=MEM.rooms.find(x=>x.id===id),P=v.sc?getPlan(v.sc):null;if(r&&P&&r.sc===v.sc&&r.ri!=null&&P.rooms[r.ri]&&P.rooms[r.ri])ST.lv=P.rooms[r.ri].l;ST.pv=null;DK.focus=1;
+  drawDeskList();drawDeskPlanCard();deskRoomRedraw(true);const it=$(`[data-dkr="${id}"]`);if(it)it.scrollIntoView({block:'nearest'})}
+function deskRefresh(){drawDeskTop();drawDeskList();drawDeskPlanCard();deskRoomRedraw()}
+let deskSoftT=0;function deskSoft(){clearTimeout(deskSoftT);deskSoftT=setTimeout(()=>{if(ST.view!=='desk')return;drawDeskTop();drawDeskList();drawVisitPlan();drawDeskPhotos();drawDeskBar();drawDeskHead()},700)}
+const DKSEC=()=>[...STEPS.slice(0,5).map((x,i)=>[i,x.t]),[5,'Bilan']];
+function drawDeskPhotos(){const r=normRoom(MEM.rooms.find(x=>x.id===DK.rid)||{}),box=$('#dkph');if(!box)return;if(!r.id){box.innerHTML='';return}
+  const c=roomCalc(r),L=r.photos||[],CAT={ens:['Pièce',0],ouv:['Ouvrants',1],vent:['Bouches',3],des:['Désordres',4]},miss=[];
+  if(!L.some(p=>p.cat==='ens'))miss.push(['ens','Vue d\'ensemble manquante',0]);if(r.nat==='Oui'&&c.T&&!L.some(p=>p.cat==='ouv'))miss.push(['ouv','Ouvrants : photo manquante',1]);
+  box.innerHTML=`<div class="row" style="justify-content:space-between;align-items:baseline"><h2 style="margin:0">Photos de la pièce · ${L.length}</h2><span class="hint" style="font-size:12px">Cliquer pour agrandir</span></div>
+    <div class="dkphs">${L.map(p=>`<figure><button type="button" data-dkzoom="${p.id}" aria-label="Agrandir la photo ${esc(p.cap||CAT[p.cat][0])}"><img alt="" data-src="${p.id}"></button><figcaption>${esc(CAT[p.cat]?CAT[p.cat][0]:'')}${p.cap?' · '+esc(p.cap):''}</figcaption></figure>`).join('')}
+    ${miss.map(([k,l,sx])=>`<figure><button type="button" class="dkmiss" data-dkgo="${sx}">${l}<small>Ajouter</small></button></figure>`).join('')}</div>${!L.length&&!miss.length?'<p class="hint">Aucune photo.</p>':''}`;
+  loadThumbs(box);
+  box.onclick=async e=>{const z=e.target.closest('[data-dkzoom]');if(z){const u=await photoURL(z.dataset.dkzoom,true);const o=document.createElement('div');o.className='dkzoom';o.innerHTML=`<img alt="" src="${u}"><button type="button" class="btn sm" aria-label="Fermer">✕ Fermer</button>`;document.body.appendChild(o);const cl=()=>{o.remove();document.removeEventListener('keydown',k)},k=ev=>{if(ev.key==='Escape')cl()};o.onclick=cl;document.addEventListener('keydown',k);return}
+    const g=e.target.closest('[data-dkgo]');if(g)deskGo(+g.dataset.dkgo)}}
+function deskGo(i){const el=$('#dks'+i),hd=$('#dkhead');if(el){const y=el.getBoundingClientRect().top+window.scrollY-(hd?hd.offsetHeight:70)-12;window.scrollTo({top:y,behavior:'smooth'})}}
+function drawDeskHead(){const v=curVisit(),r=normRoom(MEM.rooms.find(x=>x.id===DK.rid)||{}),h=$('#dkhead');if(!h||!r.id)return;const{pb}=deskOrder(v),p=pb.get(r.id)||[],P=v.sc?getPlan(v.sc):null,pr=P&&r.sc===v.sc&&r.ri!=null?P.rooms[r.ri]:null;
+  const a=String(r.astech||'').toUpperCase().trim(),pa=pr&&pr.a?String(pr.a).toUpperCase():'';
+  const plan=pr?`<span class="hint">Sur le plan : ${esc(LVL_LAB(pr.l))} · ${esc(String(pr.s||'').replace(/\s+/g,' ').trim())}</span>${pa&&a!==pa?` <span class="dkwarn">ASTECH du plan : <code>${esc(pa)}</code></span> ${NET.ro?'':'<button type="button" class="btn sm" id="dkuseplan">Reprendre celui du plan</button>'}`:''}`:'<span class="dkwarn">Pièce non rattachée au plan</span>';
+  h.innerHTML=`<div class="row" style="gap:10px;align-items:baseline;flex-wrap:wrap"><h2 style="margin:0;font-size:20px">${esc(r.salle||'Pièce sans nom')}</h2>${a?`<code class="dkcode">${esc(a)}</code>`:'<span class="dkwarn">ASTECH absent</span>'}<span class="grow"></span><span class="badge ${r.status==='done'?'done':'draft'}">${r.status==='done'?'Terminée':'En cours'}</span></div>
+    <div class="row" style="gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px">${plan}${NET.ro?'':` <button type="button" class="btn sm ghost" id="dkpickb">${DK.pick?'Choix en cours sur le plan…':'Rattacher à une autre pièce du plan'}</button>`}</div>
+    ${p.length?`<div class="dkpb"><b>${p.length} point${p.length>1?'s':''} à corriger</b><div>${p.map(m=>{const k=chkStep(m),pre=/prérempli/.test(m);return`<span><a href="#" data-dkgo="${k}">${esc(m)} →</a>${pre&&!NET.ro?` <button type="button" class="btn sm" data-dkseen="${k}" title="Les éléments repris de la visite précédente ont été vérifiés">Vérifié</button>`:''}</span>`}).join('')}</div></div>`:'<div class="dkok">Aucun point à corriger dans cette pièce.</div>'}
+    <nav class="dknav" aria-label="Rubriques de la fiche">${DKSEC().map(([i,l])=>`<a href="#" data-dkgo="${i}">${l}</a>`).join('')}</nav>`;
+  h.onclick=e=>{const g=e.target.closest('[data-dkgo]');if(g){e.preventDefault();deskGo(+g.dataset.dkgo);return}
+    const sn=e.target.closest('[data-dkseen]');if(sn){r.prev=r.prev||{};r.prev.seen=r.prev.seen||{};r.prev.seen[+sn.dataset.dkseen]=1;saveRoom(r,true);deskRefresh();return}
+    if(e.target.closest('#dkpickb')){DK.pick=DK.pick?0:1;drawDeskPlanCard();drawDeskHead();if(DK.pick)$('#dkplan').scrollIntoView({behavior:'smooth',block:'nearest'});return}
+    if(e.target.closest('#dkuseplan')){r.astech=pa;saveRoom(r,true);toast('Numéro ASTECH repris du plan.');deskRefresh()}}}
+function drawDeskBar(){const v=curVisit(),{pb,F,L}=deskOrder(v),i=F.findIndex(r=>r.id===DK.rid),bar=$('#dkbar');if(!bar)return;
+  const nx=(()=>{const A=L.length?L:[];const j=A.findIndex(r=>r.id===DK.rid);for(let k=1;k<=A.length;k++){const r=A[(j+k)%A.length];if(r&&r.id!==DK.rid&&pb.has(r.id))return r}return null})();
+  bar.innerHTML=`<span class="hint grow" style="align-self:center">${i>=0?`Pièce ${i+1} sur ${F.length}`:''} · enregistrement automatique</span><button class="btn" id="dkprev" ${i<=0?'disabled':''}>← Pièce précédente</button>${nx?`<button class="btn pri" id="dknext">Pièce suivante à corriger →</button>`:`<button class="btn" id="dknext2" ${i<0||i>=F.length-1?'disabled':''}>Pièce suivante →</button>`}`;
+  const pv=$('#dkprev');if(pv)pv.onclick=()=>deskStep(-1);const n1=$('#dknext');if(n1)n1.onclick=()=>deskSelect(nx.id);const n2=$('#dknext2');if(n2)n2.onclick=()=>deskStep(1)}
+function deskStep(d){const v=curVisit(),{F}=deskOrder(v),i=F.findIndex(r=>r.id===DK.rid),j=i+d;if(j>=0&&j<F.length)deskSelect(F[j].id)}
+function deskRoomRedraw(top){const old=$('#dkroom');if(!old)return;const r0=MEM.rooms.find(x=>x.id===DK.rid),y=window.scrollY;
+  const n=document.createElement('section');n.id='dkroom';n.className=old.className;n.setAttribute('aria-label','Fiche de la pièce');
+  if(!r0){n.innerHTML='<p class="hint" style="margin:0">Choisissez une pièce dans la liste ou sur le plan.</p>';old.replaceWith(n);drawDeskPhotos();drawDeskBar();return}
+  const r=normRoom(r0);
+  n.innerHTML=`<div id="dkhead" class="dkhead"></div>${DKSEC().map(([i,l])=>`<section class="dks" id="dks${i}"><h2 class="dksh">${l}</h2>${roomStepHTML(r,i)}${i===5&&!NET.ro?`<div class="row" style="margin-top:10px">${r.status==='done'?'<button type="button" class="btn" id="dkreopen">Remettre la pièce en cours</button>':'<button type="button" class="btn pri" id="dkdone">Marquer la pièce terminée</button>'}</div>`:''}</section>`).join('')}`;
+  old.replaceWith(n);ST.roomId=r.id;drawDeskHead();bindRoom(r);
+  const dd=$('#dkdone');if(dd)dd.onclick=async()=>{const pb=roomProblems(r);if(pb.length&&!dd.dataset.c){dd.dataset.c=1;dd.textContent='Terminer malgré les manques';toast('À compléter : '+pb.join(', '),4000);return}r.status='done';await saveRoom(r,true);toast('Pièce terminée.');deskRefresh()};
+  const ro=$('#dkreopen');if(ro)ro.onclick=async()=>{r.status='draft';await saveRoom(r,true);deskRefresh()};
+  if(NET.ro)n.querySelectorAll('input,select,textarea,button:not([data-dkgo]):not(#seeroom)').forEach(x=>{if(!x.closest('.dknav'))x.disabled=true});
+  drawDeskPhotos();drawDeskBar();if(top)window.scrollTo(0,0);else window.scrollTo(0,y)}
+document.addEventListener('keydown',e=>{if(ST.view!=='desk'||e.altKey||e.ctrlKey||e.metaKey)return;if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;if(document.querySelector('.dkzoom,#ovl:not([hidden])'))return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();deskStep(e.key==='ArrowDown'?1:-1)}});
 
 /* ================= accueil ================= */
 /* état d'une visite pour le filtre de l'accueil */
@@ -777,7 +915,7 @@ function renderVisit(){
       body+=`<div class="card"><div class="row" style="margin-bottom:8px">${(v.scs||[]).length>1?`<select id="vsc" style="width:auto">${v.scs.map(s=>`<option ${s===v.sc?'selected':''}>${s}</option>`).join('')}</select>`:''}<div class="chips">${lvs.map(l=>{const n=P.rooms.filter(r=>r.l===l&&rs.some(x=>x.ri===r.i&&x.sc===v.sc)).length;return`<button class="chip" data-lv="${l}" aria-pressed="${l===ST.lv}">${LVL_LAB(l)}${n?' · '+n:''}</button>`}).join('')}</div></div>
         ${(()=>{const el=P.rooms.filter(eligible),n=el.length,dn=rs.filter(r=>r.sc===v.sc&&r.ri!=null&&eligible(P.rooms[r.ri])).length,tg=regTarget(n);
           return`<div class="regbox"><b>${n} pièce${n>1?'s':''} à investiguer</b> sur ce plan (pièces utilisées par les enfants, en plus foncé) · objectif réglementaire : <b>${tg}</b> · évaluées : <b>${dn}</b>${dn>=tg&&tg?' ✓':''}<br><span class="hint">Moins de 6 pièces éligibles : toutes ; 6 ou plus : 50 %, réparties sur les bâtiments et les étages, entre 5 et 20 pièces.</span></div>`})()}
-        <p class="hint" style="margin:0 0 8px">Touchez une pièce pour la renseigner. Les pièces déjà évaluées prennent la couleur de leur bilan.</p>
+        <div class="row" style="margin:0 0 8px;gap:8px;align-items:center;flex-wrap:wrap"><p class="hint grow" style="margin:0">Touchez une pièce pour la renseigner. Les pièces déjà évaluées prennent la couleur de leur bilan.</p><span class="hint">Étiquettes</span>${labSeg()}</div>
         <div class="planbox" id="planbox"><div class="planctl"><button id="zin" aria-label="Zoomer">+</button><button id="zout" aria-label="Dézoomer">−</button><button id="zfit" aria-label="Recadrer" style="font-size:15px">⤢</button></div><div id="plansvg"></div></div>
         ${legendHTML('syn')}</div>`}
     else body+=`<div class="card"><p class="hint" style="margin:0">Aucun plan pour cet établissement : ajoutez les pièces depuis l'onglet « Pièces ».</p></div>`;
@@ -806,6 +944,7 @@ function renderVisit(){
   const pa=$('#prevadd');if(pa)pa.onclick=async()=>{pa.disabled=true;pa.textContent='Création des pièces…';await prevAddAll(v)};
   const vsc=$('#vsc');if(vsc)vsc.onchange=async()=>{v.sc=vsc.value;ST.lv=null;ST.pv=null;await saveVisit(v);renderVisit()};
   $$('[data-lv]').forEach(b=>b.onclick=()=>{ST.lv=b.dataset.lv;ST.pv=null;renderVisit()});
+  $$('[data-lab]').forEach(b=>b.onclick=()=>{ST.lab=b.dataset.lab;LS.set('emav_lab',ST.lab);$$('[data-lab]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lab===ST.lab)));drawVisitPlan()});
   $$('[data-mode]').forEach(b=>b.onclick=()=>{ST.mode=b.dataset.mode;renderVisit()});
   if(ST.tab==='synthese'){bindSynth(v)}
   if(ST.tab==='export'){
@@ -850,7 +989,9 @@ function legendHTML(mode,withDraft=true){
    <div class="leg">${m!=='bou'?`<span>${icoSVG('win')} ouvrants fonctionnels / total</span>`:''}${m!=='ouv'?`<span>${icoSVG('vent')} bouches fonctionnelles non encrassées / total</span>`:''}<span>${icoSVG('grille')} entrées d'air sur menuiserie en bon état / total</span><span>${icoSVG('warn')} désordre signalé</span></div>
    <p class="hint" style="margin:2px 0 0">${m==='syn'?'Satisfaisants : tous les ouvrants sont fonctionnels, accessibles et manœuvrables, et toutes les bouches sont fonctionnelles et propres. Insuffisants : aucun moyen d\'aération utilisable, ou moins de la moitié des ouvrants et des bouches en bon état.':m==='ouv'?'Part des ouvrants à la fois fonctionnels, accessibles et manœuvrables.':'Part des bouches et grilles fonctionnelles et non encrassées (entrées et sorties d\'air).'}</p>`;
 }
-function planSVG(P,lv,rooms,W,H,view,mode,interactive){
+const astShort=a=>{a=String(a||'').toUpperCase().replace(/\s+/g,'');return(a.match(/L\d{3}(?:\.\d{1,2})?$/)||[''])[0]||a};
+const labSeg=()=>`<div class="seg labseg" role="group" aria-label="Étiquettes des pièces sur le plan">${[['nom','Nom'],['astech','ASTECH'],['both','Les deux']].map(([k,l])=>`<button type="button" data-lab="${k}" aria-pressed="${(ST.lab||'nom')===k}">${l}</button>`).join('')}</div>`;
+function planSVG(P,lv,rooms,W,H,view,mode,interactive,opt){opt=opt||{};const LB=ST.lab||'nom';
   const pr=P.rooms.filter(r=>r.l===lv);if(!pr.length)return'';const bb=planBox(pr);
   let v=view;if(!v){const w=bb.x1-bb.x0||1,h=bb.y1-bb.y0||1,k=Math.max(w/(W-20),h/(H-20));v={cx:(bb.x0+bb.x1)/2,cy:(bb.y0+bb.y1)/2,k}}
   const tx=(x,y)=>(W/2+(x-v.cx)/v.k).toFixed(1)+' '+(H/2-(y-v.cy)/v.k).toFixed(1);
@@ -860,22 +1001,29 @@ function planSVG(P,lv,rooms,W,H,view,mode,interactive){
   for(const pr1 of pr){const r=byRi.get(pr1.i),el=eligible(pr1),pvr=!r&&interactive&&ST.prevRi&&ST.prevRi.has(pr1.i);s+=`<path d="${ringPath(pr1.rings,tx)}" fill="${roomFill(r,mode,el&&interactive)}" stroke="${r?'#27343a':pvr?'#b7791f':el&&interactive?'#6c8193':'#b3bec4'}" stroke-width="${r?1.3:pvr?2.2:el&&interactive?1:0.6}"${pvr?' stroke-dasharray="6 3"':''} ${interactive?`data-ri="${pr1.i}" style="cursor:pointer"`:''}/>`}
   for(const pr1 of pr){const r=byRi.get(pr1.i),c=centroid(pr1),wpx=c.w/v.k,[px,py]=tx(c.x,c.y).split(' ').map(Number);
     if(px<-40||px>W+40||py<-40||py>H+40)continue;
-    const nm=String(pr1.s||'').replace(/\s+/g,' ').trim();
-    if(!r||r.status!=='done'){if(wpx>=60&&nm)s+=`<text x="${px}" y="${py+4}" text-anchor="middle" font-size="11" fill="${r?'#16486e':eligible(pr1)&&interactive?'#2b3d4a':'#8a979d'}" font-weight="${r||eligible(pr1)&&interactive?700:400}" pointer-events="none">${esc(nm.length>18?nm.slice(0,17)+'…':nm)}</text>`;continue}
+    const nm0=String(pr1.s||'').replace(/\s+/g,' ').trim(),as=astShort(r&&r.astech||pr1.a),nm=LB==='astech'?as:nm0,a2=LB==='both'?as:'';
+    if(!r||r.status!=='done'){const col=r?'#16486e':eligible(pr1)&&interactive?'#2b3d4a':'#8a979d',fw=r||eligible(pr1)&&interactive?700:400;
+      if(nm&&wpx>=(LB==='astech'?30:60))s+=`<text x="${px}" y="${py+(a2?-1:4)}" text-anchor="middle" font-size="11" fill="${col}" font-weight="${fw}" pointer-events="none"${LB==='astech'?' font-family="monospace"':''}>${esc(nm.length>18?nm.slice(0,17)+'…':nm)}</text>`;
+      if(a2&&wpx>=34)s+=`<text x="${px}" y="${py+(nm&&wpx>=60?12:4)}" text-anchor="middle" font-size="10" fill="${col}" font-family="monospace" pointer-events="none">${esc(a2)}</text>`;continue}
     const k=roomCalc(r),items=[];
     if(mode!=='bou'&&k.T)items.push(['win',`${k.good}/${k.T}`]);if(mode!=='ouv'&&k.B)items.push(['vent',`${k.Bok}/${k.B}`]);if(k.G&&mode!=='bou')items.push(['grille',`${k.Gok}/${k.G}`]);if(k.constats)items.push(['warn','']);
     const big=wpx>=95,sc=wpx<55?0.8:1;
     const widths=items.map(it=>(18+(it[1]&&big?it[1].length*6.4+3:0))*sc),tot=widths.reduce((a,b)=>a+b,0)+(items.length-1)*3;let x=px-tot/2;const y=py-(wpx>=70?16:9)*sc;
     s+=`<g pointer-events="none">`;
     items.forEach((it,i)=>{s+=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${sc})">${ICO[it[0]]()}${it[1]&&big?`<text x="21" y="13.5" font-size="11.5" font-weight="700" fill="#17242b" stroke="#fff" stroke-width="3" paint-order="stroke">${it[1]}</text>`:''}</g>`;x+=widths[i]+3});
-    if(wpx>=70&&nm)s+=`<text x="${px}" y="${(y+30*sc).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff" stroke="#17242b" stroke-width="2.6" paint-order="stroke">${esc(nm.length>18?nm.slice(0,17)+'…':nm)}</text>`;
+    if(nm&&wpx>=(LB==='astech'?36:70))s+=`<text x="${px}" y="${(y+30*sc).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff" stroke="#17242b" stroke-width="2.6" paint-order="stroke"${LB==='astech'?' font-family="monospace"':''}>${esc(nm.length>18?nm.slice(0,17)+'…':nm)}</text>`;
+    if(a2&&wpx>=40)s+=`<text x="${px}" y="${(y+(nm&&wpx>=70?42:30)*sc).toFixed(1)}" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" stroke="#17242b" stroke-width="2.6" paint-order="stroke" font-family="monospace">${esc(a2)}</text>`;
     s+=`</g>`}
+  if(opt.sel!=null){const p=P.rooms[opt.sel];if(p&&p.l===lv)s+=`<path d="${ringPath(p.rings,tx)}" fill="none" stroke="#e8833a" stroke-width="4" pointer-events="none"/>`}
+  if(opt.warn)for(const pr1 of pr){const n=opt.warn.get(pr1.i);if(!n)continue;const c=centroid(pr1),[px,py]=tx(c.x,c.y).split(' ').map(Number),dx=Math.min(c.w/v.k/2-8,40);
+    s+=`<g pointer-events="none"><circle cx="${(px+dx).toFixed(1)}" cy="${(py-22).toFixed(1)}" r="9" fill="#b26a00" stroke="#fff" stroke-width="2"/><text x="${(px+dx).toFixed(1)}" y="${(py-18).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${n}</text></g>`}
   s+=`<g transform="translate(10 ${H-10})"><line x1="0" x2="${(10/v.k).toFixed(1)}" y1="0" y2="0" stroke="#33413f" stroke-width="2"/><text x="0" y="-4" font-size="10" fill="#33413f">10 m</text></g>`;
   return s+'</svg>';
 }
-function drawVisitPlan(){const v=curVisit(),P=getPlan(v.sc),host=$('#plansvg');if(!host)return;const W=Math.max(320,Math.round(host.clientWidth||600)),H=Math.round(Math.min(W*0.95,Math.max(420,window.innerHeight-260)));
-  if(!ST.pv){const pr=P.rooms.filter(r=>r.l===ST.lv),bb=planBox(pr),w=bb.x1-bb.x0||1,h=bb.y1-bb.y0||1;ST.pv={cx:(bb.x0+bb.x1)/2,cy:(bb.y0+bb.y1)/2,k:Math.max(w/(W-20),h/(H-20)),W,H}}
-  ST.pv.W=W;ST.pv.H=H;host.innerHTML=planSVG(P,ST.lv,roomsOf(v.id),W,H,ST.pv,ST.mode,true)}
+function drawVisitPlan(){const v=curVisit(),P=getPlan(v.sc),host=$('#plansvg');if(!host)return;const DESK=ST.view==='desk',W=Math.max(320,Math.round(host.clientWidth||600)),H=DESK?Math.round(Math.min(W*0.82,Math.max(340,window.innerHeight-330))):Math.round(Math.min(W*0.95,Math.max(420,window.innerHeight-260)));
+  if(!ST.pv){const pr=P.rooms.filter(r=>r.l===ST.lv),bb=planBox(pr),w=bb.x1-bb.x0||1,h=bb.y1-bb.y0||1;ST.pv={cx:(bb.x0+bb.x1)/2,cy:(bb.y0+bb.y1)/2,k:Math.max(w/(W-20),h/(H-20)),W,H};
+    if(DESK&&DK.focus){const o=deskPlanOpt(),p=o.sel!=null?P.rooms[o.sel]:null;if(p&&p.l===ST.lv){const bb=planBox([p]),sp=Math.max(bb.x1-bb.x0,bb.y1-bb.y0,4)*7;ST.pv={cx:(bb.x0+bb.x1)/2,cy:(bb.y0+bb.y1)/2,k:Math.min(ST.pv.k,Math.max(sp/(W-20),sp/(H-20))),W,H}}}}
+  DK.focus=0;ST.pv.W=W;ST.pv.H=H;host.innerHTML=planSVG(P,ST.lv,roomsOf(v.id),W,H,ST.pv,ST.mode,true,DESK?deskPlanOpt():null)}
 function bindPlan(){
   const box=$('#planbox'),z=(f,ax,ay)=>{const v=ST.pv;if(!v)return;ax=ax??v.W/2;ay=ay??v.H/2;const wx=v.cx+(ax-v.W/2)*v.k,wy=v.cy-(ay-v.H/2)*v.k;v.k=Math.min(5,Math.max(0.005,v.k/f));v.cx=wx-(ax-v.W/2)*v.k;v.cy=wy+(ay-v.H/2)*v.k;drawVisitPlan()};
   $('#zin').onclick=()=>z(1.5);$('#zout').onclick=()=>z(1/1.5);$('#zfit').onclick=()=>{ST.pv=null;drawVisitPlan()};
@@ -889,7 +1037,7 @@ function bindPlan(){
   host.addEventListener('pointerup',up);host.addEventListener('pointercancel',e=>{P.delete(e.pointerId);moved=99});
   box.addEventListener('wheel',e=>{e.preventDefault();const rc=host.getBoundingClientRect(),s=scale();z(e.deltaY<0?1.2:1/1.2,(e.clientX-rc.left)*s,(e.clientY-rc.top)*s)},{passive:false});
 }
-function openPlanRoom(ri){const v=curVisit(),ex=roomsOf(v.id).find(r=>r.sc===v.sc&&r.ri===ri);if(ex)go('#/r/'+ex.id+'/0');else newRoom(v,ri)}
+function openPlanRoom(ri){if(ST.view==='desk')return deskPlanPick(ri);const v=curVisit(),ex=roomsOf(v.id).find(r=>r.sc===v.sc&&r.ri===ri);if(ex)go('#/r/'+ex.id+'/0');else newRoom(v,ri)}
 
 /* ================= pièce : formulaire par étapes ================= */
 const STEPS=[{k:'piece',t:'Pièce'},{k:'ouv',t:'Ouvrants'},{k:'vmc',t:'Ventilation'},{k:'bou',t:'Bouches et grilles'},{k:'des',t:'Constats'},{k:'fin',t:'Bilan'}];
@@ -903,10 +1051,7 @@ function setPath(o,p,v){const ks=p.split('.');let a=o;for(let i=0;i<ks.length-1;
 function photoBlock(r,cat,title,hint){const L=(r.photos||[]).filter(p=>p.cat===cat);
   return`<h3>${esc(title)}</h3>${hint?`<p class="hint" style="margin:0 0 4px">${hint}</p>`:''}<div class="photos">${L.map(p=>`<div class="ph" data-ph="${p.id}"><img alt="" data-src="${p.id}"><input type="text" value="${esc(p.cap)}" placeholder="Légende" data-cap="${p.id}"><div class="capchips">${CAPTIONS[cat].map(c=>`<button type="button" data-capset="${p.id}" data-v="${esc(c)}">${esc(c)}</button>`).join('')}</div><div class="x"><span>${esc(p.file||'')}</span><button type="button" data-phdel="${p.id}">Supprimer</button></div></div>`).join('')}</div>
    <div class="photoadd"><label class="btn pri">📷 Photographier<input type="file" accept="image/*" capture="environment" data-addph="${cat}" hidden></label><label class="btn">Galerie<input type="file" accept="image/*" multiple data-addph="${cat}" hidden></label></div>`}
-function renderRoom(){
-  const r=normRoom(curRoom()),v=MEM.visits.find(x=>x.id===r.visitId),s=ST.step,c=roomCalc(r);let b='';
-  const nav=stepsNav(STEPS.map((x,i)=>({t:x.t,h:`#/r/${r.id}/${i}`,cur:i===s,done:i<s})));
-  if(r.prev&&!NET.ro){r.prev.seen=r.prev.seen||{};if(!r.prev.seen[s]){r.prev.seen[s]=1;saveRoom(r)}}
+function roomStepHTML(r,s){const c=roomCalc(r);let b='';
   if(s>=1&&s<=4)b+=prevLine(r,s);
   if(s===0){if(r.prev)b+=`<div class="prevh"><b>Pièce préremplie avec la visite du ${frDate(r.prev.date)}</b> : types et nombre d'ouvrants, matières, entrées d'air, système constructif, ventilation, bouches, et l'état constaté alors. Vérifiez chaque étape et corrigez ce qui a changé ; constats et photos sont à refaire. <button type="button" class="btn sm" data-prevsee="${esc(r.prev.id)}">Fiche de la visite du ${frDate(r.prev.date)}</button></div>`;else if(!NET.ro){const m=prevRoomOf(r);if(m)b+=`<div class="prevh"><b>Pièce déjà évaluée le ${frDate(visitDate(m.visitId))}</b> (${esc(m.salle||'')}${m.astech?' · '+esc(m.astech):''}). <button type="button" class="btn sm pri" id="prevfill">Reprendre ses éléments</button> <button type="button" class="btn sm" data-prevsee="${esc(m.id)}">Voir sa fiche</button></div>`}}
   if(s===0){
@@ -970,6 +1115,12 @@ function renderRoom(){
       ${r.status==='done'?'<p class="hint" style="text-align:center">Pièce marquée terminée.</p>':''}
       <button class="btn big del" id="delroom" style="margin-top:20px">Supprimer cette pièce</button>`;
   }
+  return b}
+function renderRoom(){
+  const r=normRoom(curRoom()),v=MEM.visits.find(x=>x.id===r.visitId),s=ST.step;
+  const nav=stepsNav(STEPS.map((x,i)=>({t:x.t,h:`#/r/${r.id}/${i}`,cur:i===s,done:i<s})));
+  if(r.prev&&!NET.ro){r.prev.seen=r.prev.seen||{};if(!r.prev.seen[s]){r.prev.seen[s]=1;saveRoom(r)}}
+  const b=roomStepHTML(r,s);
   const last=s===STEPS.length-1;
   shell(r.salle||'Nouvelle pièce',v.etab,`#/v/${v.id}/plan`,b,`<button class="btn" id="prev" ${s===0?'disabled':''}>← Précédent</button>${last?`<button class="btn pri" id="finish">${r.status==='done'?'Retour au plan':'Terminer la pièce'}</button>`:`<button class="btn pri" id="next">Suivant →</button>`}`,nav);
   bindRoom(r);
@@ -978,15 +1129,15 @@ const chipsOne=(name,val,opts)=>`<div class="chips" data-one="${name}">${opts.ma
 function syncDefaults(r){const T=totOuv(r);r.touched=r.touched||{};for(const k of['fonct','access','manoeuv']){if(!r.touched[k])r[k]=T;r[k]=Math.min(num(r[k]),T)}
   for(const key of['entree','sortie']){const o=r[key];o.touched=o.touched||{};if(!o.touched.ok)o.ok=num(o.n);o.ok=Math.min(num(o.ok),num(o.n));o.obt=Math.min(num(o.obt),num(o.n));o.enc=Math.min(num(o.enc),num(o.n))}}
 function bindRoom(r){
-  const main=$('main'),rerender=()=>{const y=window.scrollY;renderRoom();window.scrollTo(0,y)};
+  const DESK=ST.view==='desk',main=DESK?$('#dkroom'):$('main'),rerender=DESK?()=>deskRoomRedraw():()=>{const y=window.scrollY;renderRoom();window.scrollTo(0,y)};
   main.addEventListener('input',e=>{const t=e.target;
-    if(t.dataset.f){setPath(r,t.dataset.f,t.value);if(t.dataset.f==='salle'){$('.apptop h1').textContent=t.value||'Nouvelle pièce'}saveRoom(r)}
+    if(t.dataset.f){setPath(r,t.dataset.f,t.value);if(t.dataset.f==='salle'&&!DESK){$('.apptop h1').textContent=t.value||'Nouvelle pièce'}saveRoom(r);if(DESK)deskSoft()}
     else if(t.dataset.num){setNum(r,t.dataset.num,t.value,false)}
     else if(t.dataset.cap){const p=r.photos.find(x=>x.id===t.dataset.cap);if(p){p.cap=t.value;saveRoom(r)}}});
   main.addEventListener('click',e=>{const t=e.target.closest('[data-prevsee],#prevfill');if(!t)return;e.stopPropagation();
     if(t.id==='prevfill'){const m=prevRoomOf(r);if(m){prefillFrom(r,m);saveRoom(r,true);toast('Éléments repris de la visite du '+frDate(r.prev.date)+' : vérifiez l\'état à chaque étape.',4000);rerender()}return}
     const p=MEM.rooms.find(x=>x.id===t.dataset.prevsee),pv=p&&MEM.visits.find(x=>x.id===p.visitId);if(p&&pv)showReport('room',pv,p)},true);
-  main.addEventListener('change',e=>{const f=e.target.dataset.f;if(ST.step===0&&!r.prev&&(f==='salle'||f==='astech')&&prevRoomOf(r))rerender()});
+  main.addEventListener('change',e=>{const f=e.target.dataset.f;if((DESK||ST.step===0)&&!r.prev&&(f==='salle'||f==='astech')&&prevRoomOf(r))rerender();else if(DESK&&f==='astech')rerender()});
   main.addEventListener('keydown',e=>{const t=e.target;if(t.dataset.addv&&e.key==='Enter'){e.preventDefault();const b=$(`[data-addvb="${t.dataset.addv}"]`);if(b)b.click()}});
   main.addEventListener('change',e=>{const t=e.target;if(t.dataset.num){setNum(r,t.dataset.num,t.value,true)}if(t.dataset.addph){addPhotos(r,t.dataset.addph,[...t.files]).then(rerender);t.value=''}});
   main.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
@@ -1000,7 +1151,7 @@ function bindRoom(r){
     if(t.dataset.capset){const p=r.photos.find(x=>x.id===t.dataset.capset);if(p){p.cap=t.dataset.v;saveRoom(r);const inp=$(`[data-cap="${p.id}"]`);if(inp)inp.value=p.cap}return}
     if(t.dataset.phdel){if(!t.dataset.c){t.dataset.c=1;t.textContent='Confirmer';return}const id=t.dataset.phdel;r.photos=r.photos.filter(x=>x.id!==id);DB.del('photos',id);saveRoom(r,true);rerender();return}});
   const prev=$('#prev'),next=$('#next'),fin=$('#finish');
-  prev.onclick=()=>go(`#/r/${r.id}/${ST.step-1}`);
+  if(prev)prev.onclick=()=>go(`#/r/${r.id}/${ST.step-1}`);
   if(next)next.onclick=()=>{saveRoom(r,true);go(`#/r/${r.id}/${nextStep(r,ST.step)}`)};
   if(fin)fin.onclick=async()=>{const pb=roomProblems(r);if(pb.length&&!fin.dataset.c){fin.dataset.c=1;fin.textContent='Terminer malgré les manques';toast('À compléter : '+pb.join(', '),4000);return}r.status='done';await saveRoom(r,true);toast('Pièce terminée.');go(`#/v/${r.visitId}/plan`)};
   const sr=$('#seeroom');if(sr)sr.onclick=()=>showReport('room',MEM.visits.find(x=>x.id===r.visitId),r);
@@ -1012,7 +1163,7 @@ function setNum(r,name,val,redraw){let v=Math.max(0,Math.round(num(val)));const 
   setPath(r,name,v);const m=name.match(/^(fonct|access|manoeuv)$/);if(m){r.touched=r.touched||{};r.touched[name]=true}
   const m2=name.match(/^(entree|sortie)\.ok$/);if(m2){r[m2[1]].touched=r[m2[1]].touched||{};r[m2[1]].touched.ok=true}
   syncDefaults(r);saveRoom(r);
-  if(redraw&&(/\.n$|\.gn$/.test(name)||/^ouv\.\d+\.n$/.test(name))){const y=window.scrollY;renderRoom();window.scrollTo(0,y)}else{const inp=$(`[data-num="${name}"]`);if(inp&&document.activeElement!==inp)inp.value=getPath(r,name)}}
+  if(redraw&&(/\.n$|\.gn$/.test(name)||/^ouv\.\d+\.n$/.test(name))){if(ST.view==='desk')deskRoomRedraw();else{const y=window.scrollY;renderRoom();window.scrollTo(0,y)}}else{if(ST.view==='desk')deskSoft();const inp=$(`[data-num="${name}"]`);if(inp&&document.activeElement!==inp)inp.value=getPath(r,name)}}
 
 /* ---- photos : compression et stockage ---- */
 function shrink(file,max,q,type='image/jpeg'){return new Promise((res,rej)=>{const url=URL.createObjectURL(file),img=new Image();
