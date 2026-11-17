@@ -321,7 +321,7 @@ function loginDialog(){const m=document.createElement('div');m.className='ovlog'
 document.addEventListener('click',e=>{const b=e.target.closest('#hlogin,#slogin');if(b){e.preventDefault();loginDialog();return}const c=e.target.closest('#sconsult');if(c){e.preventDefault();accSetE('consultation').catch(x=>toast(x.message))}});
 function startNetTimer(){if(startNetTimer.on)return;startNetTimer.on=1;setInterval(()=>{if(!document.hidden)netSync()},60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)netSync()})}
 /* Réglages : base EMAV du réseau (la base partagée de l'outil QAI CO2) */
-const EMAV_VERSION='2026.11.17-1';
+const EMAV_VERSION='2026.11.17-2';
 function verCard(){const tel=!VIA_GW&&!IN_CLAUDE;return`<div class="card"><h2>Version</h2><p style="margin:0">EMAV <b>${EMAV_VERSION}</b>${tel?' · version téléphone':''}${VIA_GW?` · passerelle <b>${esc(NET.pver||'ancienne')}</b>${NET.pver&&NET.pver!==EMAV_VERSION?' <span style="color:var(--bad)">(différente : réinstallez le package)</span>':''}`:''}</p>
   <p class="hint" style="margin:4px 0 0">Le même numéro s'affiche dans l'outil QAI CO₂ (Paramètres) et sur le téléphone (Réglages).${tel?' Après une mise à jour du site, fermez puis rouvrez l\'application avec réseau : la nouvelle version se charge toute seule.':''}${PLANS.index.length?` Données : ${PLANS.index.length} plans, ${BDD.length} établissements, ${MEM.visits.length} visites sur cet appareil.`:''}</p></div>`}
 function netCard(){
@@ -464,7 +464,21 @@ function visitChecks(v){const rs=roomsOf(v.id),P=v.sc?getPlan(v.sc):null,V=[],R=
     if(p.length)R.push({r,p})}
   return{V,R,n:V.length+R.reduce((a,x)=>a+x.p.length,0),rs}}
 const VF=Object.assign({q:'',st:'verif',yr:'',an:0},LS.get('emav_vf',{}));
-function renderVerif(){const all=MEM.visits.slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||(b.updated||0)-(a.updated||0));
+/* rattachement des pièces au plan d'après leur numéro ASTECH : plans importés après la visite, structure inconnue, plan réimporté */
+async function relinkVisit(v){if(NET.ro||!v)return 0;let n=0,vch=false;
+  for(const r of roomsOf(v.id)){const a=aNorm(r.astech);if(!a)continue;
+    if(r.sc&&r.ri!=null){const P=getPlan(r.sc),p=P&&P.rooms[r.ri];if(p&&(a.length<8||aNorm(p.a)===a))continue}
+    let sc='',ri=null;const m=a.match(/^(S\d{4})B/);
+    if(m){for(const s of[...new Set([m[1],v.sc,...(v.scs||[])].filter(Boolean))]){const P=getPlan(s),i=P?P.rooms.findIndex(x=>aNorm(x.a)===a):-1;if(i>=0){sc=s;ri=i;break}}}
+    else if(/^L\d{3}/.test(a)){for(const s of[...new Set([v.sc,...(v.scs||[])].filter(Boolean))]){const P=getPlan(s);if(!P)continue;const I=[];P.rooms.forEach((x,i)=>{if(aNorm(x.a).endsWith(a))I.push(i)});if(I.length===1){sc=s;ri=I[0];break}}}
+    if(ri==null||(r.sc===sc&&r.ri===ri))continue;
+    r.sc=sc;r.ri=ri;if(a.length<8){const p=getPlan(sc).rooms[ri];if(p.a)r.astech=p.a}await saveRoom(r,true);n++;
+    if(!v.sc){v.sc=sc;vch=true}if(!(v.scs||[]).includes(sc)){v.scs=[...(v.scs||[]),sc];vch=true}}
+  if(vch)await saveVisit(v);return n}
+const DKRL=new Set();
+async function relinkAll(){if(NET.ro||ST.relinked||!Object.keys(PLANS.docs||{}).length)return 0;ST.relinked=1;let n=0;for(const v of MEM.visits)n+=await relinkVisit(v);return n}
+
+function renderVerif(){if(!ST.relinked)relinkAll().then(n=>{if(n){toast(`${n} pièce${n>1?'s':''} rattachée${n>1?'s':''} au plan grâce à leur numéro ASTECH.`,4000);if(ST.view==='verif')renderVerif()}});const all=MEM.visits.slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||(b.updated||0)-(a.updated||0));
   const L=all.map(v=>({v,st:vStat(v),ck:visitChecks(v)})),cnt={};for(const x of L)cnt[x.st]=(cnt[x.st]||0)+1;
   const yrs=[...new Set(all.map(v=>String(v.date||'').slice(0,4)).filter(Boolean))].sort().reverse(),ro=NET.ro;
   const q=plain(VF.q||''),F=L.filter(x=>(!VF.st||x.st===VF.st)&&(!VF.yr||String(x.v.date||'').startsWith(VF.yr))&&(!VF.an||x.ck.n)&&(!q||plain(x.v.etab+' '+(x.v.evaluateur||'')+' '+frDate(x.v.date)).includes(q)));
@@ -509,7 +523,7 @@ function deskOrder(v){const ck=visitChecks(v),pb=new Map(ck.R.map(x=>[x.r.id,x.p
 function deskPlanOpt(){const v=curVisit(),{pb}=deskOrder(v),r=MEM.rooms.find(x=>x.id===DK.rid),warn=new Map();
   for(const x of roomsOf(v.id))if(x.sc===v.sc&&x.ri!=null&&pb.has(x.id))warn.set(x.ri,pb.get(x.id).length);
   return{sel:r&&r.sc===v.sc&&r.ri!=null?r.ri:DK.newRi,warn}}
-function renderDesk(){const v=curVisit();if(!v){go('#/verif');return}const{L}=deskOrder(v);
+function renderDesk(){const v=curVisit();if(!v){go('#/verif');return}if(!DKRL.has(v.id)){DKRL.add(v.id);relinkVisit(v).then(n=>{if(n&&ST.view==='desk'){toast(`${n} pièce${n>1?'s':''} rattachée${n>1?'s':''} au plan.`);ST.lv=null;ST.pv=null;DK.focus=1;renderDesk()}})}const{L}=deskOrder(v);
   if(!DK.rid||!L.some(r=>r.id===DK.rid))DK.rid=L[0]?L[0].id:null;
   ST.lab=LS.get('emav_lab','nom');
   $('#app').innerHTML=`<div class="dkwrap"><div class="apptop dktop" id="dktop"></div>
@@ -900,6 +914,7 @@ function renderNewVisit(){
 /* ================= visite : plan, pièces, synthèse, export ================= */
 function curVisit(){return MEM.visits.find(v=>v.id===ST.visitId)}
 function renderVisit(){
+  {const v0=curVisit();if(v0&&!ST.relinked)relinkVisit(v0).then(n=>{if(n&&ST.view==='visit'&&curVisit()===v0){toast(`${n} pièce${n>1?'s':''} rattachée${n>1?'s':''} au plan.`);renderVisit()}})}
   const v=curVisit(),rs=roomsOf(v.id),done=rs.filter(r=>r.status==='done').length,P=getPlan(v.sc);
   const tabs=[['infos','Visite'],['plan','Plan'],['pieces','Pièces'],['synthese','Synthèse'],['export','Export']];
   const nav=stepsNav(tabs.map(([k,l])=>({t:l,h:`#/v/${v.id}/${k}`,cur:ST.tab===k})));
